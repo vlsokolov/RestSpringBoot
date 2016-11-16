@@ -40,7 +40,7 @@ public class EventController {
 	}
 
 	@RequestMapping(path = "events", method = RequestMethod.GET)
-	public List<Event> getAllTevents() {
+	public List<Event> getAllEvents() {
 		return eventService.findAll();
 	}
 

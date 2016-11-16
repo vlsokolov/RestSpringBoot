@@ -25,7 +25,6 @@ public class EventServiceImpl implements EventService {
 	}
 
 	@Override
-	@Transactional(readOnly = true)
 	public List<Event> findAll() {
 		List<Event> list = eventRepository.findAll();
 		return list;
@@ -46,7 +45,6 @@ public class EventServiceImpl implements EventService {
 	}
 
 	@Override
-	@Transactional(readOnly = true)
 	public Event findOne(Integer id) {
 		Event event = eventRepository.findOne(id);		
 		return event;
