@@ -7,8 +7,8 @@
     <version>1.0-SNAPSHOT</version>
     <name>Spring RESTful web service</name>
     <description>Test case project</description>
-
-
+    <packaging>war</packaging>
+	
     <properties>
         <java.version>1.8</java.version>
     </properties>
@@ -18,8 +18,8 @@
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>1.4.1.RELEASE</version>
         <relativePath/>
-    </parent>
-
+    </parent>	
+  
     <build>
         <pluginManagement>
             <plugins>
@@ -39,56 +39,8 @@
                         <downloadSources>true</downloadSources>
                         <downloadJavadocs>true</downloadJavadocs>
                     </configuration>
-                </plugin>
-                <plugin>
-                    <groupId>org.springframework.boot</groupId>
-                    <artifactId>spring-boot-maven-plugin</artifactId>
-                    <executions>
-                        <execution>
-                            <goals>
-                                <goal>repackage</goal>
-                            </goals>
-                        </execution>
-                    </executions>
-                </plugin>
-
-                <!-- Jacoco plugin -->
-                <plugin>
-                    <groupId>org.jacoco</groupId>
-                    <artifactId>jacoco-maven-plugin</artifactId>
-                    <version>0.7.6.201602180812</version>
-                    <configuration>
-                        <destFile>${project.artifactId}/target/jacoco.exec</destFile>
-                        <dataFile>${project.artifactId}/target/jacoco.exec</dataFile>
-                    </configuration>
-
-                    <executions>
-                        <execution>
-                            <id>jacoco-initialize</id>
-                            <goals>
-                                <goal>prepare-agent</goal>
-                            </goals>
-                        </execution>
-                        <execution>
-                            <id>jacoco-site</id>
-                            <phase>package</phase>
-                            <goals>
-                                <goal>report</goal>
-                            </goals>
-                        </execution>
-                    </executions>
-                </plugin>
-
-                <!-- Coveralls plugin -->
-                <plugin>
-                    <groupId>org.eluder.coveralls</groupId>
-                    <artifactId>coveralls-maven-plugin</artifactId>
-                    <version>4.3.0</version>
-                    <configuration>
-                        <repoToken>6L7tDhmEWdM1AbVhCXWw6ceWzs2EyaaXy</repoToken>
-                    </configuration>
-                </plugin>
-
+                </plugin>             
+                
             </plugins>
         </pluginManagement>
     </build>
@@ -98,6 +50,7 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
+            <scope>provide</scope>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -107,6 +60,11 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-jpa</artifactId>
         </dependency>
+        <dependency>
+	        <groupId>org.springframework.boot</groupId>
+	        <artifactId>spring-boot-starter-tomcat</artifactId>
+	        <scope>provided</scope>
+	    </dependency>
         
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -117,7 +75,7 @@
                     <artifactId>spring-boot-starter-logging</artifactId>
                 </exclusion>
             </exclusions>
-        </dependency>
+        </dependency>		
 
         <dependency>
             <groupId>junit</groupId>
@@ -131,18 +89,7 @@
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
-        </dependency>
-        <!-- Log4j -->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-log4j2</artifactId>
-        </dependency>
-        <!-- H2 -->
-        <dependency>
-            <groupId>com.h2database</groupId>
-            <artifactId>h2</artifactId>
-        </dependency>
-    </dependencies>
-
+        </dependency>       
+    </dependencies>    
 </project>
 

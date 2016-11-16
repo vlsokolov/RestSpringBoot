@@ -32,7 +32,6 @@ public class EventController {
 	private ResponseEntity<Event> create(@PathVariable(required = false) Integer id,
 			@RequestBody Event Event) {
 		if (!eventService.contains(id)) {
-
 			throw new EventNotFoundException();
 		}
 		eventService.save(Event, Optional.ofNullable(id).orElse(new Integer(0)));
