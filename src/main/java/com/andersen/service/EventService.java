@@ -8,7 +8,7 @@ public interface EventService {
 
 	List<Event> findAll();
 
-	void save(Event testObject, Integer id);
+	void save(Event testObject);
 
 	boolean contains(Integer id);
 

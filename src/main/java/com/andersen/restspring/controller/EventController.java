@@ -29,12 +29,8 @@ public class EventController {
 	}
 
 	@RequestMapping(path = { "event", "event/{id}" }, method = { RequestMethod.POST, RequestMethod.PUT })
-	private ResponseEntity<Event> create(@PathVariable(required = false) Integer id,
-			@RequestBody Event Event) {
-		if (!eventService.contains(id)) {
-			throw new EventNotFoundException();
-		}
-		eventService.save(Event, Optional.ofNullable(id).orElse(new Integer(0)));
+	private ResponseEntity<Event> create(@RequestBody Event Event) {	
+		eventService.save(Event);
 		return new ResponseEntity<>(Event, HttpStatus.OK);
 	}
 

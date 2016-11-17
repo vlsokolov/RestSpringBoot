@@ -31,10 +31,7 @@ public class EventServiceImpl implements EventService {
 	}
 
 	@Override
-	public void save(Event event, Integer id) {
-		if (id != 0) {
-			event.setId(id);
-		}
+	public void save(Event event) {
 		eventRepository.saveAndFlush(event);		
 	}
 
